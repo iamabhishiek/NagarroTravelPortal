@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "travelportal"
+    }
+  },
+  "defaultProject": "travelportal",
+  "cli": {
+    "analytics": "8ca9d326-34e3-48ee-b3fc-c37ca5e41a0c"
+  }
 }
