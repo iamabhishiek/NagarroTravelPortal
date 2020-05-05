@@ -13,19 +13,14 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class UserticketsComponent implements OnInit {
   user: Ticket;
   userId: string;
-  constructor(
-    private _userService: Service,
-    private formBuilder: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute
-  ) {}
+  constructor(private service: Service, private route: ActivatedRoute) {}
   ngOnInit(): void {
     this.getTicket();
   }
   getTicket() {
     this.userId = this.route.snapshot.params.id;
-    this._userService.getTicket(this.userId).subscribe((data) => {
-      this.user = data;
+    this.service.getTicket(this.userId).subscribe((userdata) => {
+      this.user = userdata;
     });
   }
 }

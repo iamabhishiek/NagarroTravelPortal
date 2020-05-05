@@ -1,3 +1,18 @@
 <table>
-  <tr *ngFor="let obj of user"></tr>
+  <tr *ngFor="let x of user">
+    <td>{{ x.requestype }}</td>
+    <td>{{ x.priority }}</td>
+    <td>{{ x.city }}</td>
+    <td>{{ x.fromcity }}</td>
+    <td>{{ x.startdate }}</td>
+    <td>{{ x.endate }}</td>
+    <td>{{ x.passportnumber }}</td>
+    <td>{{ x.projectname }}</td>
+    <td>{{ x.expenseborn }}</td>
+    <td>{{ x.travelapprover }}</td>
+    <td>{{ x.expectduration }}</td>
+    <td>{{ x.upperbound }}</td>
+    <td>{{ x.additional }}</td>
+    <td>{{ x.status }}</td>
+  </tr>
 </table>
