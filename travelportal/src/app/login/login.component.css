@@ -1,4 +1,16 @@
-body{
+/* body{
     background-color: black;
     color:white;
+} */
+form {
+  size: 100px;
+}
+input {
+  font-size: 30px;
+  margin: 15px;
+}
+button {
+  margin: 15px;
+  font-size: 30px;
+  background-color: chartreuse;
 }

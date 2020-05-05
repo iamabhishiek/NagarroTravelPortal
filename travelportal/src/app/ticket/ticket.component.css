@@ -1,0 +1,20 @@
+input,
+select {
+  font-size: 20px;
+  margin: 11px;
+}
+input[type="radio"] {
+  text-align: left;
+  align-content: left;
+  font-size: 20px;
+  margin: 11px;
+}
+form {
+  align-content: left;
+  font-size: 20px;
+}
+button {
+  margin: 15px;
+  font-size: 30px;
+  background-color: chartreuse;
+}

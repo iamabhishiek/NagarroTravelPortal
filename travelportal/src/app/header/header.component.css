@@ -1,0 +1,26 @@
+.header {
+  background-color: yellowgreen;
+  font-size: 60px;
+}
+a {
+  size: 100px;
+
+  color: black;
+  font-size: 40px;
+  font-weight: 100;
+  text-decoration: none;
+}
+#a1 {
+  margin-left: 28%;
+  color: black;
+  padding-right: 0px;
+}
+#a2 {
+  margin-right: 0px;
+  padding-right: 0px;
+
+  /* margin-: 0px; */
+  /* margin-left: 700px; */
+  font-size: 30px;
+  color: black;
+}

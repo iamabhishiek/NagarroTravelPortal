@@ -1,0 +1,11 @@
+input {
+  align-content: right;
+  align-self: right;
+  font-size: 20px;
+  margin: 11px;
+}
+button {
+  margin: 15px;
+  font-size: 30px;
+  background-color: chartreuse;
+}

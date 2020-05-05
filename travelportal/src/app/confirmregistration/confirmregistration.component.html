@@ -1,22 +1,43 @@
 <div>
-    <h1>Registration: Confirmation</h1>
-    <span>
-        Thank you for Registring.The admin will contact you shortly with your username and password.
-    </span>
-    <div>
-        Name:<br>
-        Buisness Unit:<br>
-        Title:<br>
-        Email:<br>
-        Telephone:<br>
-        Address1:<br>
-        Address2<br>
-        City:<br>
-        State:<br>
-        Zip:<br>
-        Country<br>
+  <h1>Registration: Confirmation</h1>
+  <span>
+    Thank you for Registring.The admin will contact you shortly with your
+    username and password.
+  </span>
+  <table>
+    <tr *ngFor="let x of users">
+      <td>{{ x.firstName }}</td>
+    </tr>
+  </table>
+  <form>
+    <div id="main">
+      First Name:<label>&emsp;{{ user.firstName }}</label
+      ><br />
+      Last Name:<label>&emsp;{{ user.lastName }}</label
+      ><br />
+      Business Unit:<label>&emsp;{{ user.businessUnit }}</label
+      ><br />
+      Title:<label>&emsp;{{ user.title }}</label
+      ><br />
+      E-mail: <label>&emsp;{{ user.email }}</label
+      ><br />
+      Telephone: <label>&emsp;{{ user.telephone }}</label
+      ><br />
+      Address1: <label>&emsp;{{ user.address1 }}</label
+      ><br />
+      Address2: <label>&emsp;{{ user.address2 }}</label
+      ><br />
+      City: <label>&emsp;{{ user.city }}</label
+      ><br />
+      State:<label>&emsp;{{ user.state }}</label
+      ><br />
+      Zip: <label>&emsp;{{ user.zip }}</label
+      ><br />
+      Country: <label>&emsp;{{ user.country }}</label
+      ><br />
     </div>
-    <input type="button" value="Print">
-    <input type="button" value="Edit">
-    <input type="button" value="Return to Home Page">
+    <button (click)="print()">print</button><br />
+    <button (click)="Return()">Return Home</button><br />
+    <button (click)="Edit()">Edit</button><br />
+  </form>
 </div>

@@ -1,12 +1,38 @@
 <div>
-    <h1>Login</h1>
-    <div class="form">
-        Username:<input type="text" placeholder="Enter username"><br>
-        Password:<input type="password" placeholder="Enter password"><br>
-        <input type="submit"><br>
-        <span>Don't have a username and Password</span><br>
-        <a></a><span>Register now!</span><br>
-        <span>Forgot your username or password?</span>
-    </div>
-
+  <h1>Login</h1>
+  <form action="/action_page.php" method="post">
+    <h1>
+      Username:
+      <input
+        type="text"
+        placeholder="Enter username"
+        [(ngModel)]="user.username"
+        name="username"
+      />
+    </h1>
+    <br />
+    <h1>
+      Password:
+      <input
+        type="password"
+        placeholder="Enter password"
+        [(ngModel)]="user.password"
+        name="password"
+      />
+    </h1>
+    <br />
+    <button
+      class="btn btn success"
+      (click)="login()"
+      style="align-self: center;"
+    >
+      login</button
+    ><br /><br />
+  </form>
+  <div class="container" style="background-color: #f1f1f1;">
+    <span>Don't have a username and Password</span><br />
+    <a routerLink="/register"><span>Register now!</span><br /></a>
+    <span>Forgot your username or password?</span>
+    <a class="nav-item nav-link" routerLink="/forget">ForgetPassword</a><br />
+  </div>
 </div>
