@@ -1,0 +1,33 @@
+<!-- <mat-toolbar color="primary">
+  <img width="180px"  src="https://plsadaptive.s3.amazonaws.com/eco/images/partners/ZK4lo48RDUIL1ew9ffjTbLahLCIxmATc8OXYeeS5.png">
+   <div class="spacer"></div>
+  <button mat-button (click)="Logout()">Logout</button><br/>
+</mat-toolbar>
+<div >
+  <mat-table [dataSource]="user" matSort>
+    <ng-container matColumnDef="ticketid">
+      <mat-header-cell *matHeaderCellDef mat-sort-header  >Ticket Id</mat-header-cell>
+      <mat-cell *matCellDef="let obj"><a (click)="link(obj.ticketid)">#{{obj.ticketid}}</a></mat-cell>
+    </ng-container>
+
+   <ng-container matColumnDef="priority">
+     <mat-header-cell *matHeaderCellDef mat-sort-header>Priority</mat-header-cell>
+     <mat-cell *matCellDef="let obj">{{obj.priority}}</mat-cell>
+   </ng-container>
+
+   <ng-container matColumnDef="submittedDate">
+     <mat-header-cell *matHeaderCellDef mat-sort-header>Submitted Date</mat-header-cell>
+     <mat-cell *matCellDef="let obj">{{obj.submittedDate}}</mat-cell>
+   </ng-container>
+
+   <ng-container matColumnDef="status">
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Status</mat-header-cell>
+    <mat-cell *matCellDef="let obj">{{obj.status}}</mat-cell>
+  </ng-container>
+
+   <mat-header-row *matHeaderRowDef = "Columns" color="primary"></mat-header-row>
+   <mat-row *matRowDef = "let row ; columns:Columns"></mat-row>
+ </mat-table>
+</div>
+
+ -->

@@ -1,19 +1,3 @@
-// import { Component, OnInit } from '@angular/core';
-
-// @Component({
-//   selector: 'app-login',
-//   templateUrl: './login.component.html',
-//   styleUrls: ['./login.component.css']
-// })
-// export class LoginComponent implements OnInit {
-
-//   constructor() { }
-
-//   ngOnInit(): void {
-//   }
-
-// }
-
 import { Component, OnInit } from '@angular/core';
 import { Service } from '../service/service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -33,6 +17,7 @@ export class LoginComponent implements OnInit {
   user = new Login();
   buttoname: string;
   msg: string;
+  type: string;
   constructor(
     private _userService: Service,
     private formBuilder: FormBuilder,
@@ -61,18 +46,38 @@ export class LoginComponent implements OnInit {
 
     this.user.username = this.f.username.value;
     this.user.password = this.f.password.value;
-
     this.login();
   }
   login(): void {
     this._userService.LoginUser(this.user).subscribe((response) => {
       let resStr = JSON.stringify(response);
+
       if (resStr === 'true') {
-        this.router.navigate(['homepage/' + this.user.username]);
+        this.getUserType();
+
+        // if (this.type == 'admin')
+        //   this.router.navigate(['adminhomepage/' + this.user.username]);
+        // else this.router.navigate(['homepage/' + this.user.username]);
       }
       if (resStr === 'false') {
         this.msg = 'Username or Password Incorrect';
       }
     });
+  }
+  getUserType(): void {
+    this._userService
+      .getUserType(this.user.username, this.user.password)
+      .subscribe(
+        (userData) => {
+          this.type = userData.type;
+          alert(this.type);
+          if (this.type == 'admin') this.router.navigate(['adminhomepage/']);
+          else this.router.navigate(['homepage/' + this.user.username]);
+          // alert(userData.type);
+        },
+        (error) => {
+          console.log(error);
+        }
+      );
   }
 }

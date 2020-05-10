@@ -14,7 +14,6 @@ import { FooterComponent } from './footer/footer.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { ConfirmregistrationComponent } from './confirmregistration/confirmregistration.component';
-import { AdminLoginComponent } from './admin-login/admin-login.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { UserticketsComponent } from './usertickets/usertickets.component';
 import { ServiceComponent } from './service/service.component';
@@ -22,6 +21,7 @@ import { TicketComponent } from './ticket/ticket.component';
 import { HomeComponent } from './home/home.component';
 import { ConfirmTicketComponent } from './confirm-ticket/confirm-ticket.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { AllticketsComponent } from './alltickets/alltickets.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +33,13 @@ import { NgxPaginationModule } from 'ngx-pagination';
     ForgotPasswordComponent,
     ConfirmregistrationComponent,
     HomeComponent,
-    AdminLoginComponent,
     AdminHomeComponent,
     UserticketsComponent,
     ServiceComponent,
     TicketComponent,
     HomeComponent,
     ConfirmTicketComponent,
+    AllticketsComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,110 @@
+<a class="nav-item nav-link" routerLink="/">Return</a><br/>
+<div class="container">
+  <div class="row">
+    <div class="col-10">
+      <div class="jumbotron">
+        <form name="form" [formGroup]="form">
+            <h2>Registration</h2>
+          <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" class="form-control" formControlName="firstName" [ngClass]="{'is-invalid':form.get('firstName').touched && form.get('firstName').invalid}"   />
+            <div *ngIf="form.get('firstName').touched && form.get('firstName').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('firstName').errors.required">First Name is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="lastName">Last Name:</label>
+            <input type="text" class="form-control" formControlName="lastName" [ngClass]="{'is-invalid':form.get('lastName').touched && form.get('lastName').invalid}"   />
+            <div *ngIf="form.get('lastName').touched && form.get('lastName').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('lastName').errors.required">Last Name is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="businessUnit">Business Unit:</label>
+            <input type="text" class="form-control" formControlName="businessUnit" [ngClass]="{'is-invalid':form.get('businessUnit').touched && form.get('businessUnit').invalid}"   />
+            <div *ngIf="form.get('businessUnit').touched && form.get('businessUnit').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('businessUnit').errors.required">Business Unit is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="title">Title:</label>
+            <input type="text" class="form-control" formControlName="title" [ngClass]="{'is-invalid':form.get('title').touched && form.get('title').invalid}"   />
+            <div *ngIf="form.get('title').touched && form.get('title').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('title').errors.required">Title is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail:</label>
+            <input type="text" class="form-control" formControlName="email" [ngClass]="{'is-invalid':form.get('email').touched && form.get('email').invalid}"   />
+            <div *ngIf="form.get('email').touched && form.get('email').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('email').errors.required">E-mail is required</div>
+              <div *ngIf="form.get('email').errors.emaildomain">E-mail is not valid</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="telephone">Telephone:</label>
+            <input type="number" class="form-control" formControlName="telephone" [ngClass]="{'is-invalid':form.get('telephone').touched && form.get('telephone').invalid}"   />
+            <div *ngIf="form.get('telephone').touched && form.get('telephone').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('telephone').errors.required">Telephone is required</div>
+              <div *ngIf="form.get('telephone').errors.maxlength">Telephone is not valid</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address1"> Address1:</label>
+            <input type="text" class="form-control" formControlName="address1" [ngClass]="{'is-invalid':form.get('address1').touched && form.get('address1').invalid}"   />
+            <div *ngIf="form.get('address1').touched && form.get('address1').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('address1').errors.required">Address1 is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="address2"> Address2:</label>
+            <input type="text" class="form-control" formControlName="address2"/>
+          </div>
+
+          <div class="form-group">
+            <label for="city"> City:</label>
+            <input type="text" class="form-control" formControlName="city" [ngClass]="{'is-invalid':form.get('city').touched && form.get('city').invalid}"   />
+            <div *ngIf="form.get('city').touched && form.get('city').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('city').errors.required">City is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="state"> State:</label>
+            <input type="text" class="form-control" formControlName="state" [ngClass]="{'is-invalid':form.get('state').touched && form.get('state').invalid}"   />
+            <div *ngIf="form.get('state').touched && form.get('state').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('state').errors.required">State is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="zip"> Pincode:</label>
+            <input type="text" class="form-control" formControlName="zip" [ngClass]="{'is-invalid':form.get('zip').touched && form.get('zip').invalid}"   />
+            <div *ngIf="form.get('zip').touched && form.get('zip').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('zip').errors.required">Pincode is required</div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="country"> Country:</label>
+            <select value="" class="form-control" formControlName="country" [ngClass]="{'is-invalid':form.get('country').touched && form.get('country').invalid}">
+            <option *ngFor = "let country of countries"  [value]="country.name">{{country.name}}</option>
+            </select>
+            <div *ngIf="form.get('country').touched && form.get('country').invalid"  class="invalid-feedback">
+              <div *ngIf="form.get('country').errors.required">Country is required</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-primary"  (click)="onSubmit()">{{buttoname}}</button>
+          </div>
+</form>
+      </div>
+    </div>
+  </div>
+</div>

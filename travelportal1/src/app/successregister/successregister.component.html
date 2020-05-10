@@ -1,0 +1,68 @@
+<body>
+  <div class="container">
+  <div class="row">
+    <div class="col-10">
+      <div class="jumbotron">
+        <form name="form" >
+            <h2>Registration</h2>
+          <div id='print-section'>
+          <div class="form-group">
+            <label for="firstName"><b>First Name:</b>&emsp;{{user.firstName}}</label>
+          </div>
+          <div class="form-group">
+            <label for="lastName"><b>Last Name:</b>&emsp;{{user.lastName}}</label>
+          </div>
+
+          <div class="form-group">
+            <label for="businessUnit"><b>Business Unit:</b>&emsp;{{user.businessUnit}}</label>
+          </div>
+
+          <div class="form-group">
+            <label for="title"><b>Title:</b>&emsp;{{user.title}}</label>
+          </div>
+
+          <div class="form-group">
+            <label for="email"><b>E-mail:</b>&emsp;{{user.email}}</label>
+            <label></label>
+          </div>
+
+          <div class="form-group">
+            <label for="telephone"><b>Telephone:</b>&emsp;{{user.telephone}}</label>
+          </div>
+
+          <div class="form-group">
+            <label for="address1"><b> Address1:</b>&emsp;{{user.address1}}</label>
+          </div>
+
+          <div class="form-group">
+            <label for="address2"><b> Address2:</b>&emsp;{{user.address2}}</label>
+          </div>
+
+          <div class="form-group">
+            <label for="city"><b> City:</b>&emsp;{{user.city}}</label>
+          </div>
+
+          <div class="form-group">
+            <label for="state"><b> State:</b>&emsp;{{user.state}}</label>
+          </div>
+
+          <div class="form-group">
+            <label for="zip"><b> Pincode:</b>&emsp;{{user.zip}}</label>
+          </div>
+
+          <div class="form-group">
+            <label for="country"> <b> Country:</b>&emsp;{{user.country}}</label>
+          </div>
+          
+          </div>
+          <div class="form-group">
+            <button (click)="Return()">Return Home</button>
+          <button (click)="Edit()">Edit</button>
+          <button (click)="print()">print</button>
+          </div>
+</form>
+ </div>
+ </div>
+ </div>
+ </div>
+ </body>

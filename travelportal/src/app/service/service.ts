@@ -51,6 +51,13 @@ export class Service {
       body
     );
   }
+  // Forget(user: String) {
+  //   let body = '';
+  //   return this._httpService.put(
+  //     'http://localhost:8081/travelPortal/api/login/' + user,
+  //     body
+  //   );
+  // }
 
   getUserById(userId: string): Observable<Register> {
     return this._httpService.get<Register>(
@@ -63,10 +70,17 @@ export class Service {
       'http://localhost:8081/travelPortal/api/ticket/' + userId + '/' + ticketId
     );
   }
-
+  getUserType(username: string, password: string): Observable<Login> {
+    return this._httpService.get<Login>(
+      'http://localhost:8081/travelPortal/api/alogin/' +
+        username +
+        '/' +
+        password
+    );
+  }
   getTicket(userId: string): Observable<Ticket> {
     return this._httpService.get<Ticket>(
-      'http://localhost:8081/travelPortal/api/user/' + userId
+      'http://localhost:8081/travelPortal/api/ticket/' + userId
     );
   }
 
@@ -97,7 +111,30 @@ export class Service {
       options
     );
   }
-
+  AdminUser(user: Login) {
+    return this._httpService.get(
+      'http://localhost:8081/travelPortal/api/admin/' +
+        user.username +
+        '/' +
+        user.password
+    );
+  }
+  editTicketStatus(userid: string, status: string) {
+    console.log(status);
+    let body = status;
+    let headers = new HttpHeaders({ 'Content-Type': 'application/json' });
+    let options = { headers: headers };
+    return this._httpService.put(
+      'http://localhost:8081/travelPortal/api/userticket/' + userid,
+      body,
+      options
+    );
+  }
+  getTicketByIdonly(userId: string): Observable<Ticket> {
+    return this._httpService.get<Ticket>(
+      'http://localhost:8081/travelPortal/api/ticketid/' + userId
+    );
+  }
   postFile(fileToUpload: FormData, ticketId: string): Observable<boolean> {
     const endpoint =
       'http://localhost:8081/travelPortal/api/ticketupload/' + ticketId;
