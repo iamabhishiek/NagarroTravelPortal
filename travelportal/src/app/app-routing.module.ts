@@ -21,7 +21,7 @@ import { UserticketsComponent } from './usertickets/usertickets.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
 
 const routes: Routes = [
-  // { path: '', component: LoginComponent },
+  { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'register/:id', component: RegistrationComponent },

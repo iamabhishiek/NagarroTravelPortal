@@ -12,5 +12,15 @@ input {
 button {
   margin: 15px;
   font-size: 30px;
-  background-color: chartreuse;
+  color: white;
+  border: 0px;
+  border-radius: 10px;
+  width: 110px;
+  background-color: #141a4b;
+}
+.loginbg {
+  color: white;
+  margin: 0px;
+  height: 800px;
+  background-image: url("https://cdn.hipwallpaper.com/i/75/53/0cFvKO.jpg");
 }
