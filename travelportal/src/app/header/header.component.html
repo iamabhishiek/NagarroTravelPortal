@@ -1,14 +1,12 @@
 <div class="header">
-  <table style="width: 100%;">
+  <table style="width: 100%; margin-top: 0; padding: 20px;">
     <tr>
       <td>
         <a routerLink="homepage" id="a1">Nagarro Travel Portal</a>
       </td>
 
-      <td>
-        <a routerLink="login" id="a2">Login</a><br />
-        <a routerLink="register" id="a2">Register</a>
-      </td>
+      <td *ngIf="vis"><a routerLink="login">Login</a></td>
+      <td *ngIf="!vis"><a (click)="onlogout()">Logout</a></td>
     </tr>
   </table>
 </div>

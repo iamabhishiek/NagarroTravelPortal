@@ -1,18 +1,26 @@
 .header {
-  background-color: yellowgreen;
+  background-color: #141a4b;
   font-size: 60px;
+  margin-top: 0px;
 }
 a {
   size: 100px;
 
-  color: black;
-  font-size: 40px;
+  color: White;
+  font-style: italic;
+  font-style: bold;
+
+  font-size: 30px;
   font-weight: 100;
   text-decoration: none;
 }
 #a1 {
   margin-left: 28%;
-  color: black;
+  color: White;
+  font-style: italic;
+  font-style: bold;
+
+  font-size: 60px;
   padding-right: 0px;
 }
 #a2 {

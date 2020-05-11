@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
 
       if (resStr === 'true') {
         this.getUserType();
+        sessionStorage.setItem('name', this.user.username);
 
         // if (this.type == 'admin')
         //   this.router.navigate(['adminhomepage/' + this.user.username]);
@@ -70,7 +71,6 @@ export class LoginComponent implements OnInit {
       .subscribe(
         (userData) => {
           this.type = userData.type;
-          alert(this.type);
           if (this.type == 'admin') this.router.navigate(['adminhomepage/']);
           else this.router.navigate(['homepage/' + this.user.username]);
           // alert(userData.type);

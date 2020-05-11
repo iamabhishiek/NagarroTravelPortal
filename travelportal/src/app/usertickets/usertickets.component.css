@@ -3,3 +3,10 @@ table {
   margin: 10px;
   border: 20px;
 }
+table,
+th,
+td {
+  padding: 10px;
+  border: 1px solid black;
+  border-collapse: collapse;
+}

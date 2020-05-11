@@ -15,7 +15,7 @@
       <th>Expected Duration</th>
       <th>Upper Bound</th>
       <th>Additional</th>
-      <th>Status</th>
+      <th>Change Status</th>
       <th>Upload file</th>
     </tr>
   </thead>
@@ -35,10 +35,16 @@
       <td>{{ x.expectduration }}</td>
       <td>{{ x.upperbound }}</td>
       <td>{{ x.additional }}</td>
-      <td>{{ x.status }}</td>
       <td>
-        <label for="file">Choose File</label>
-        <input type="file" id="file" (change)="onChange($event)" />
+        <select value="" class="form-control" formControlName="status">
+          <option value="Approved">Approved</option>
+          <option value="In Process">In Process</option>
+        </select>
+      </td>
+
+      <td>
+        <!-- <label for="file">Choose File</label>
+        <input type="file" id="file" (change)="onChange($event)" /> -->
         <button (click)="onClick(x.ticketid)">Submit</button>
       </td>
     </tr>

@@ -1,8 +1,14 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormControl,
+  FormGroup,
+  Validators,
+} from '@angular/forms';
 import { Service } from '../service/service';
 import { Ticket } from '../ticket/ticket';
+
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
@@ -63,6 +69,7 @@ export class AdminHomeComponent implements OnInit {
   }
 
   onClick(ticketId: string) {
+    // this.router.navigateByUrl('alticket');
     this.formData.append('file', this.data);
     this.formData.append('ticketId', ticketId);
     this.fileUpload();
@@ -83,14 +90,5 @@ export class AdminHomeComponent implements OnInit {
     return this.form.controls;
   }
 
-  fileUpload() {
-    this._userService
-      .postFile(this.formData, this.ticketId)
-      .subscribe((message) => {
-        console.log(message),
-          (error) => {
-            console.log(error);
-          };
-      });
-  }
+  fileUpload() {}
 }

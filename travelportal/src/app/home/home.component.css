@@ -5,4 +5,13 @@ button {
   display: inline-block;
   background-color: cadetblue;
   font-size: 40px;
+  color: white;
+  border: 0px;
+  border-radius: 10px;
+}
+.div1 {
+  height: 800px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-image: url("https://www.blemobileapps.com/wp-content/uploads/2018/06/Use-of-Beacon-Technology-in-Travel-and-Tourism-Industry.png");
 }

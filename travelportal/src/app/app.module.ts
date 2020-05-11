@@ -23,6 +23,10 @@ import { ConfirmTicketComponent } from './confirm-ticket/confirm-ticket.componen
 import { NgxPaginationModule } from 'ngx-pagination';
 import { AllticketsComponent } from './alltickets/alltickets.component';
 
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,6 +53,10 @@ import { AllticketsComponent } from './alltickets/alltickets.component';
     AppRoutingModule,
     ReactiveFormsModule,
     NgxPaginationModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSortModule,
+    MatTableModule,
   ],
   providers: [Service],
   bootstrap: [AppComponent],
