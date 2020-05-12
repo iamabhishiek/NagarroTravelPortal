@@ -1,0 +1,11 @@
+.container {
+  background-color: #141a4b;
+  color: white;
+  height: 60px;
+  font-size: 15px;
+  margin: 0px;
+  padding-top: 10px;
+}
+p {
+  padding: 0px;
+}

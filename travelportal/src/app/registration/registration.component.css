@@ -3,9 +3,38 @@ input {
   align-self: right;
   font-size: 20px;
   margin: 11px;
+  margin-bottom: 0px;
 }
 button {
   margin: 15px;
   font-size: 30px;
-  background-color: chartreuse;
+}
+div {
+  background-image: url("https://cdn.hipwallpaper.com/i/75/53/0cFvKO.jpg");
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
+h1 {
+  padding-top: 35px;
+  padding-bottom: 10px;
+  margin-top: 0px;
+  color: white;
+}
+.form {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  color: white;
+  background-image: url("https://cdn.hipwallpaper.com/i/75/53/0cFvKO.jpg");
+  background: no-repeat;
+  background-size: 100%;
+  margin-left: 600px;
+  text-align: left;
+}
+input {
+  display: block;
+  position: relative;
+  right: -100px;
+  width: 300px;
+  top: -35px;
 }

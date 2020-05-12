@@ -1,31 +1,26 @@
 <div>
-  <form>
-    <br />
-    <br />
+  <h1>Registration Form</h1>
+  <form class="form">
     <br />
     First Name:
-    <input type="text" [(ngModel)]="user.firstName" name="firstName" /><br />
+    <input type="text" [(ngModel)]="user.firstName" name="firstName" />
     Last Name:
-    <input type="text" [(ngModel)]="user.lastName" name="lastName" /><br />
+    <input type="text" [(ngModel)]="user.lastName" name="lastName" />
     Business Unit:
-    <input
-      type="text"
-      [(ngModel)]="user.businessUnit"
-      name="businessUnit"
-    /><br />
-    Title: <input type="text" [(ngModel)]="user.title" name="title" /><br />
-    E-mail: <input type="email" [(ngModel)]="user.email" name="email" /><br />
+    <input type="text" [(ngModel)]="user.businessUnit" name="businessUnit" />
+    Title: <input type="text" [(ngModel)]="user.title" name="title" /> E-mail:
+    <input type="email" [(ngModel)]="user.email" name="email" />
     Telephone:
-    <input type="number" [(ngModel)]="user.telephone" name="telephone" /><br />
+    <input type="number" [(ngModel)]="user.telephone" name="telephone" />
     Address1:
-    <input type="text" [(ngModel)]="user.address1" name="address1" /><br />
+    <input type="text" [(ngModel)]="user.address1" name="address1" />
     Address2:
-    <input type="text" [(ngModel)]="user.address2" name="address2" /><br />
-    City: <input type="text" [(ngModel)]="user.city" name="city" /><br />
-    State: <input type="text" [(ngModel)]="user.state" name="state" /><br />
-    Zip: <input type="text" [(ngModel)]="user.zip" name="zip" /><br />
+    <input type="text" [(ngModel)]="user.address2" name="address2" />
+    City: <input type="text" [(ngModel)]="user.city" name="city" /> State:
+    <input type="text" [(ngModel)]="user.state" name="state" /> Zip:
+    <input type="text" [(ngModel)]="user.zip" name="zip" />
     Country:
-    <input type="text" [(ngModel)]="user.country" name="country" /><br />
+    <input type="text" [(ngModel)]="user.country" name="country" />
     <button (click)="addUser()">{{ buttoname }}</button>
   </form>
 </div>

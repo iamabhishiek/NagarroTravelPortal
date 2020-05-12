@@ -1,96 +1,103 @@
 <div>
-  <form>
-    <br />
-    <br />
+  <h1>Generate Ticket</h1>
+  <form class="form">
     Request Type:
-    <br />
-    <input
-      type="radio"
-      [(ngModel)]="user.requestype"
-      name="requestype"
-      value="traveltickets"
-    />Travel Tickets<br />
-    <input
-      type="radio"
-      [(ngModel)]="user.requestype"
-      name="requestype"
-      value="hotelstay"
-    />Hotel Stay<br />
-    <input
-      type="radio"
-      [(ngModel)]="user.requestype"
-      name="requestype"
-      value="visa"
-    />Visa<br />
-    <input
-      type="radio"
-      [(ngModel)]="user.requestype"
-      name="requestype"
-      value="workpermit"
-    />Work Permit<br />
+
+    <label>
+      <input
+        type="radio"
+        [(ngModel)]="user.requestype"
+        name="requestype"
+        value="traveltickets"
+      />Travel Tickets</label
+    >
+    <label
+      ><input
+        type="radio"
+        [(ngModel)]="user.requestype"
+        name="requestype"
+        value="hotelstay"
+      />Hotel Stay</label
+    >
+    <label>
+      <input
+        type="radio"
+        [(ngModel)]="user.requestype"
+        name="requestype"
+        value="visa"
+      />Visa</label
+    >
+    <label
+      ><input
+        type="radio"
+        [(ngModel)]="user.requestype"
+        name="requestype"
+        value="workpermit"
+      />Work Permit</label
+    >
+
     Priority:
     <select [(ngModel)]="user.priority" name="priority">
       <option label="Normal" value="normal">Normal</option>
       <option label="Urgent" value="urgent">Urgent</option>
-      <option label="Immediate" value="immediate">Immediate</option> </select
-    ><br />
+      <option label="Immediate" value="immediate">Immediate</option>
+    </select>
     Travel City:<select [(ngModel)]="user.city" name="city">
       <option label="Delhi" value="Delhi">Delhi</option>
       <option label="Gurgaon" value="Gurgaon">Gurgaon</option>
-      <option label="Jaipur" value="Jaipur">Jaipur</option> </select
-    ><br />
+      <option label="Jaipur" value="Jaipur">Jaipur</option>
+    </select>
     From Location City:
     <select [(ngModel)]="user.fromcity" name="fromcity">
       <option label="Delhi" value="Delhi">Delhi</option>
       <option label="Gurgaon" value="Gurgaon">Gurgaon</option>
-      <option label="Jaipur" value="Jaipur">Jaipur</option> </select
-    ><br />
+      <option label="Jaipur" value="Jaipur">Jaipur</option>
+    </select>
     Travel Start Date :
-    <input type="date" [(ngModel)]="user.startdate" name="startdate" /><br />
+    <input type="date" [(ngModel)]="user.startdate" name="startdate" />
     Travel End Date :
-    <input type="date" [(ngModel)]="user.endate" name="endate" /><br />
+    <input type="date" [(ngModel)]="user.endate" name="endate" />
     Passport Number:
     <input
       type="text"
       [(ngModel)]="user.passportnumber"
       name="passportnumber"
-    /><br />
+    />
     Project Name:
-    <input
-      type="text"
-      [(ngModel)]="user.projectname"
-      name="projectname"
-    /><br />
+    <input type="text" [(ngModel)]="user.projectname" name="projectname" />
     Expense Borne by:
-    <br />
-    <input
-      type="radio"
-      [(ngModel)]="user.expenseborn"
-      name="expenseborn"
-      value="nagarro"
-    />Nagarro<br />
-    <input
-      type="radio"
-      [(ngModel)]="user.expenseborn"
-      name="expenseborn"
-      value="client"
-    />Client<br />
+    <label>
+      <input
+        type="radio"
+        [(ngModel)]="user.expenseborn"
+        name="expenseborn"
+        value="nagarro"
+      />Nagarro</label
+    >
+    <label>
+      <input
+        type="radio"
+        [(ngModel)]="user.expenseborn"
+        name="expenseborn"
+        value="client"
+      />Client</label
+    >
     Travel Approver Name :
     <input
       type="text"
       [(ngModel)]="user.travelapprover"
       name="travelapprover"
-    /><br />
+    />
     Expected Duration of Travel :
     <input
       type="text"
       [(ngModel)]="user.expectduration"
       name="expectduration"
-    /><br />
-    Any Upper Bound on the allowed amount? If yes Specify:
-    <input type="text" [(ngModel)]="user.upperbound" name="upperbound" /><br />
+    />
+    Any Upper Bound on the allowed <br />amount? If yes Specify:
+    <input type="text" [(ngModel)]="user.upperbound" name="upperbound" />
     Any Additional Details :
-    <input type="text" [(ngModel)]="user.additional" name="additional" /><br />
+    <input type="text" [(ngModel)]="user.additional" name="additional" />
     <button (click)="addUser()">{{ buttoname }}</button>
   </form>
 </div>

@@ -9,9 +9,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class HeaderComponent implements OnInit {
   vis: boolean;
+  username: string;
 
   constructor(private myrouter: Router, private myhttp: HttpClient) {
-    console.log('con running');
     myrouter.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
         this.ngOnInit();
@@ -19,14 +19,23 @@ export class HeaderComponent implements OnInit {
     });
   }
   ngOnInit(): void {
+    this.username = sessionStorage.getItem('name');
+    // alert(this.username);
     if (sessionStorage.getItem('name') != null) {
       this.vis = false;
     } else {
       this.vis = true;
     }
   }
-  onlogout() {
+  onLogin() {
+    sessionStorage.setItem('name', 'u');
+    this.ngOnInit();
+    this.myrouter.navigateByUrl('/login');
+    this.username = sessionStorage.getitem('name');
+  }
+  onLogout() {
     sessionStorage.clear();
-    this.myrouter.navigateByUrl('login');
+    this.ngOnInit();
+    this.myrouter.navigateByUrl('/login');
   }
 }
