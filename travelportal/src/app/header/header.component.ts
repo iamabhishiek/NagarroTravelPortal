@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
       this.vis = true;
     }
   }
+
   onLogin() {
     sessionStorage.setItem('name', 'u');
     this.ngOnInit();

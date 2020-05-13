@@ -86,11 +86,12 @@ export class TicketComponent implements OnInit {
           let resStr = JSON.stringify(response);
           console.log(resStr);
           var id = resStr;
+          alert(id);
           this.router.navigate(['successticket/' + this.userId + '/' + id]);
         });
     } else {
       this._userService
-        .editicket(this.ticketId, this.user)
+        .addTicket(this.ticketId, this.user)
         .subscribe((response) => {
           let resStr = JSON.stringify(response);
           var id = resStr;

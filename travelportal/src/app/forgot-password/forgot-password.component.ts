@@ -16,6 +16,7 @@ export class ForgotPasswordComponent implements OnInit {
   userId: string;
   users: forget[];
   user = new forget();
+  msg: string;
   constructor(
     private service: Service,
     private formBuilder: FormBuilder,
@@ -37,6 +38,7 @@ export class ForgotPasswordComponent implements OnInit {
     this.submitted = true;
 
     if (this.forgetForm.invalid) {
+      this.msg = 'null';
       return;
     }
 
@@ -46,8 +48,8 @@ export class ForgotPasswordComponent implements OnInit {
 
   addUser(): void {
     this.service.Forget(this.user.userName).subscribe((response) => {
-      this.router.navigate(['login/login']);
       console.log(response);
     });
+    this.router.navigate(['login']);
   }
 }

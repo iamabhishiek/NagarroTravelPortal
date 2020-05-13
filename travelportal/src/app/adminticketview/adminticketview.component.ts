@@ -19,8 +19,10 @@ export class AdminticketviewComponent implements OnInit {
   submitted = false;
   users: Ticket[];
   user = new Ticket();
+  fileToUpload: File = null;
   ticketId: string;
   formData = new FormData();
+  data: File;
   constructor(
     private _userService: Service,
     private router: Router,
@@ -30,6 +32,7 @@ export class AdminticketviewComponent implements OnInit {
 
   form = new FormGroup({
     comment: new FormControl('', []),
+    file: new FormControl([null]),
     status: new FormControl('', []),
   });
   ngOnInit(): void {
@@ -51,7 +54,33 @@ export class AdminticketviewComponent implements OnInit {
     return this.form.controls;
   }
 
+  onFileChange(event) {
+    let reader = new FileReader();
+
+    if (event.target.files && event.target.files.length) {
+      const [file] = event.target.files;
+      this.data = file;
+      reader.readAsDataURL(file);
+
+      reader.onload = () => {
+        this.form.patchValue({
+          file: reader.result,
+        });
+        this.cd.markForCheck();
+      };
+    }
+  }
+
   onSubmit(ticketId: string) {
+    if (this.data === undefined && this.f.status.value === '') {
+      alert(' No Value');
+    }
+    if (this.data !== undefined) {
+      this.formData.append('file', this.data);
+      this.formData.append('comment', this.f.comment.value);
+      this.fileUpload(ticketId);
+    }
+    console.log(this.f.status.value);
     if (this.f.status.value !== '') {
       this._userService
         .editTicketStatus(this.ticketId, this.f.status.value)
@@ -65,12 +94,22 @@ export class AdminticketviewComponent implements OnInit {
     }
   }
 
+  fileUpload(ticketId: string) {
+    this._userService.postFile(this.formData, ticketId).subscribe((message) => {
+      console.log(message);
+      this.router.navigate(['/adminhomepage']),
+        (error) => {
+          console.log(error);
+        };
+    });
+  }
+
   Return(): void {
     this.router.navigate(['/adminhomepage']);
   }
 
   Logout(): void {
-    sessionStorage.removeItem('name');
-    this.router.navigate(['login/']);
+    localStorage.removeItem('auth');
+    this.router.navigate(['login/user']);
   }
 }

@@ -63,7 +63,6 @@ export class ConfirmTicketComponent implements OnInit {
       this.router.navigate(['ticket/' + this.userId + '/' + this.ticketId]);
     }
   }
-
   print(): void {
     let printContents, popupWin;
     printContents = document.getElementById('main').innerHTML;
