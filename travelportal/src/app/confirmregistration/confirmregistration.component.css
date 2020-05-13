@@ -1,0 +1,13 @@
+table {
+  align-content: left;
+  margin-left: 24%;
+  padding-left: 18%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+tr {
+  padding-top: 15px;
+}
+button {
+  margin-bottom: 20px;
+}

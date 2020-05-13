@@ -88,8 +88,7 @@ export class TicketComponent implements OnInit {
           var id = resStr;
           this.router.navigate(['successticket/' + this.userId + '/' + id]);
         });
-    }
-    if (this.buttoname === 'Update') {
+    } else {
       this._userService
         .editicket(this.ticketId, this.user)
         .subscribe((response) => {

@@ -1,0 +1,17 @@
+table {
+  align-content: left;
+  margin-left: 20%;
+  padding-left: 12%;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  align-content: left;
+}
+td {
+  align-content: left;
+}
+tr {
+  padding-top: 15px;
+}
+button {
+  margin-bottom: 20px;
+}

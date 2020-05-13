@@ -3,24 +3,37 @@
   <form class="form">
     <br />
     First Name:
-    <input type="text" [(ngModel)]="user.firstName" name="firstName" />
+    <input type="text" [(ngModel)]="user.firstName" name="firstName" required />
     Last Name:
-    <input type="text" [(ngModel)]="user.lastName" name="lastName" />
+    <input type="text" [(ngModel)]="user.lastName" name="lastName" required />
     Business Unit:
-    <input type="text" [(ngModel)]="user.businessUnit" name="businessUnit" />
+    <input
+      type="text"
+      [(ngModel)]="user.businessUnit"
+      name="businessUnit"
+      required
+    />
     Title: <input type="text" [(ngModel)]="user.title" name="title" /> E-mail:
-    <input type="email" [(ngModel)]="user.email" name="email" />
+    <input type="email" [(ngModel)]="user.email" name="email" required />
     Telephone:
-    <input type="number" [(ngModel)]="user.telephone" name="telephone" />
+    <input
+      type="number"
+      [(ngModel)]="user.telephone"
+      name="telephone"
+      required
+    />
     Address1:
-    <input type="text" [(ngModel)]="user.address1" name="address1" />
+    <input type="text" [(ngModel)]="user.address1" name="address1" required />
     Address2:
     <input type="text" [(ngModel)]="user.address2" name="address2" />
-    City: <input type="text" [(ngModel)]="user.city" name="city" /> State:
-    <input type="text" [(ngModel)]="user.state" name="state" /> Zip:
-    <input type="text" [(ngModel)]="user.zip" name="zip" />
+    City:
+    <input type="text" [(ngModel)]="user.city" name="city" required /> State:
+    <input type="text" [(ngModel)]="user.state" name="state" required /> Zip:
+    <input type="text" [(ngModel)]="user.zip" name="zip" required />
     Country:
-    <input type="text" [(ngModel)]="user.country" name="country" />
+    <input type="text" [(ngModel)]="user.country" name="country" required />
+    <label style="color: red;">{{ msg }}</label
+    ><br /><br />
     <button (click)="addUser()">{{ buttoname }}</button>
   </form>
 </div>

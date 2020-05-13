@@ -1,52 +1,36 @@
-<table class="table table-striped" style="width: 100%;">
-  <thead class="thead-dark">
-    <tr>
-      <th>Ticket Id</th>
-      <th>Request Type</th>
-      <th>Priority</th>
-      <th>City</th>
-      <th>From City</th>
-      <th>Travel Date</th>
-      <th>End Date</th>
-      <th>Passport Number</th>
-      <th>Project Name</th>
-      <th>Expense Born</th>
-      <th>Travel Approver</th>
-      <th>Expected Duration</th>
-      <th>Upper Bound</th>
-      <th>Additional</th>
-      <th>Change Status</th>
-      <th>Upload file</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let x of user">
-      <td>#{{ x.ticketid }}</td>
-      <td>{{ x.requestype }}</td>
-      <td>{{ x.priority }}</td>
-      <td>{{ x.city }}</td>
-      <td>{{ x.fromcity }}</td>
-      <td>{{ x.startdate }}</td>
-      <td>{{ x.endate }}</td>
-      <td>{{ x.passportnumber }}</td>
-      <td>{{ x.projectname }}</td>
-      <td>{{ x.expenseborn }}</td>
-      <td>{{ x.travelapprover }}</td>
-      <td>{{ x.expectduration }}</td>
-      <td>{{ x.upperbound }}</td>
-      <td>{{ x.additional }}</td>
-      <td>
-        <select value="" class="form-control" formControlName="status">
-          <option value="Approved">Submitted</option>
-          <option value="In Process">In Process</option>
-        </select>
-      </td>
+<div>
+  <mat-table [dataSource]="user" matSort>
+    <ng-container matColumnDef="ticketid">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Ticket Id</mat-header-cell
+      >
+      <mat-cell *matCellDef="let obj"
+        ><a (click)="link(obj.ticketid)">#{{ obj.ticketid }}</a></mat-cell
+      >
+    </ng-container>
 
-      <td>
-        <label for="file">Choose File</label>
-        <input type="file" id="file" (change)="onChange($event)" />
-        <button (click)="onClick(x.ticketid)">Submit</button>
-      </td>
-    </tr>
-  </tbody>
-</table>
+    <ng-container matColumnDef="priority">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Priority</mat-header-cell
+      >
+      <mat-cell *matCellDef="let obj">{{ obj.priority }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="submittedDate">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Submitted Date</mat-header-cell
+      >
+      <mat-cell *matCellDef="let obj">{{ obj.submittedDate }}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef mat-sort-header
+        >Status</mat-header-cell
+      >
+      <mat-cell *matCellDef="let obj">{{ obj.status }}</mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="Columns" color="primary"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: Columns"></mat-row>
+  </mat-table>
+</div>

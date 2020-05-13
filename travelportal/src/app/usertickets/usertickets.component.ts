@@ -11,8 +11,10 @@ import { Router, ActivatedRoute } from '@angular/router';
   providers: [Service],
 })
 export class UserticketsComponent implements OnInit {
-  user: Ticket;
+  user: Array<any>;
   userId: string;
+  totalRecords: number;
+  page: number = 1;
   constructor(private service: Service, private route: ActivatedRoute) {}
   ngOnInit(): void {
     this.getTicket();
@@ -21,6 +23,7 @@ export class UserticketsComponent implements OnInit {
     this.userId = this.route.snapshot.params.id;
     this.service.getTicket(this.userId).subscribe((userdata) => {
       this.user = userdata;
+      this.totalRecords = this.user.length;
     });
   }
 }

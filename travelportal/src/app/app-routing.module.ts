@@ -9,7 +9,8 @@ import { HomeComponent } from './home/home.component';
 import { ConfirmTicketComponent } from './confirm-ticket/confirm-ticket.component';
 import { UserticketsComponent } from './usertickets/usertickets.component';
 import { AdminHomeComponent } from './admin-home/admin-home.component';
-
+import { AdminticketviewComponent } from './adminticketview/adminticketview.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 const routes: Routes = [
   { path: '', component: LoginComponent },
   { path: 'login', component: LoginComponent },
@@ -23,6 +24,8 @@ const routes: Routes = [
   { path: 'successticket/:id/:ticketId', component: ConfirmTicketComponent },
   { path: 'viewticket/:id', component: UserticketsComponent },
   { path: 'adminhomepage', component: AdminHomeComponent },
+  { path: 'adminticketview/:id', component: AdminticketviewComponent },
+  { path: 'successticket/:id', component: ConfirmTicketComponent },
 ];
 
 @NgModule({

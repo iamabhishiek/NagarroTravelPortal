@@ -17,8 +17,9 @@ export class RegistrationComponent implements OnInit {
   users: Register[];
   user = new Register();
   buttoname: string;
+  msg: string;
   constructor(
-    private _userService: Service,
+    private service: Service,
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute
@@ -31,7 +32,14 @@ export class RegistrationComponent implements OnInit {
       businessunit: ['', Validators.required],
       title: ['', Validators.required],
       email: ['', [Validators.required, Validators.email]],
-      telephone: ['', [Validators.required, Validators.maxLength(15)]],
+      telephone: [
+        '',
+        [
+          Validators.required,
+          Validators.maxLength(15),
+          Validators.minLength(10),
+        ],
+      ],
       address1: ['', Validators.required],
       address2: [''],
       city: ['', Validators.required],
@@ -56,7 +64,10 @@ export class RegistrationComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
     //stop if form is invaid
+
     if (this.registerForm.invalid) {
+      this.msg = 'All fields are mandatary Except address 2';
+
       return;
     }
     this.user.firstName = this.f.firstName.value;
@@ -74,15 +85,23 @@ export class RegistrationComponent implements OnInit {
     this.addUser();
   }
   addUser(): void {
+    if (this.user.email.substr(this.user.email.length - 12) != '@nagarro.com') {
+      this.msg = 'Invalid Email';
+      return;
+    }
+    if (this.user.telephone >= 10000000000000000) {
+      this.msg = 'Invalid phone no.';
+      return;
+    }
     if (this.buttoname === 'Submit') {
-      this._userService.addUser(this.user).subscribe((response) => {
+      this.service.addUser(this.user).subscribe((response) => {
         let resStr = JSON.stringify(response);
         var id = resStr;
         this.router.navigate(['success/' + id]);
       });
     }
     if (this.buttoname === 'Update') {
-      this._userService.edit(this.userId, this.user).subscribe((response) => {
+      this.service.edit(this.userId, this.user).subscribe((response) => {
         let resStr = JSON.stringify(response);
         var id = resStr;
         this.router.navigate(['success/' + id]);
@@ -91,7 +110,7 @@ export class RegistrationComponent implements OnInit {
     }
   }
   getUserById(userId: string): void {
-    this._userService.getUserById(userId).subscribe(
+    this.service.getUserById(userId).subscribe(
       (userData) => {
         this.user = userData;
         this.registerForm.setValue({

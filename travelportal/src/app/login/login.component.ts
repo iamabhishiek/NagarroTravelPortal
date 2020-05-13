@@ -19,12 +19,10 @@ export class LoginComponent implements OnInit {
   msg: string;
   type: string;
   constructor(
-    private _userService: Service,
+    private service: Service,
     private formBuilder: FormBuilder,
-    private router: Router,
-    private route: ActivatedRoute
+    private router: Router
   ) {}
-
   ngOnInit(): void {
     sessionStorage.clear();
     this.registerForm = this.formBuilder.group({
@@ -32,34 +30,24 @@ export class LoginComponent implements OnInit {
       password: ['', Validators.required],
     });
   }
-
   get f() {
     return this.registerForm.controls;
   }
-
   onLogin(): void {
-    this.submitted = true;
-
     //stop if form is invaid
     if (this.registerForm.invalid) {
       return;
     }
-
     this.user.username = this.f.username.value;
     this.user.password = this.f.password.value;
     this.login();
   }
   login(): void {
-    this._userService.LoginUser(this.user).subscribe((response) => {
+    this.service.LoginUser(this.user).subscribe((response) => {
       let resStr = JSON.stringify(response);
-
       if (resStr === 'true') {
         this.getUserType();
         sessionStorage.setItem('name', this.user.username);
-
-        // if (this.type == 'admin')
-        //   this.router.navigate(['adminhomepage/' + this.user.username]);
-        // else this.router.navigate(['homepage/' + this.user.username]);
       }
       if (resStr === 'false') {
         this.msg = 'Username or Password Incorrect';
@@ -67,18 +55,16 @@ export class LoginComponent implements OnInit {
     });
   }
   getUserType(): void {
-    this._userService
-      .getUserType(this.user.username, this.user.password)
-      .subscribe(
-        (userData) => {
-          this.type = userData.type;
-          if (this.type == 'admin') this.router.navigate(['adminhomepage/']);
-          else this.router.navigate(['homepage/' + this.user.username]);
-          // alert(userData.type);
-        },
-        (error) => {
-          console.log(error);
-        }
-      );
+    // alert('hello');
+    this.service.getUserType(this.user.username, this.user.password).subscribe(
+      (userData) => {
+        this.type = userData.type;
+        if (this.type == 'admin') this.router.navigate(['adminhomepage/']);
+        else this.router.navigate(['homepage/' + this.user.username]);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 }

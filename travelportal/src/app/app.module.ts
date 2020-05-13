@@ -27,6 +27,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSortModule } from '@angular/material/sort';
 import { MatTableModule } from '@angular/material/table';
+import { AdminticketviewComponent } from './adminticketview/adminticketview.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,9 +46,11 @@ import { MatTableModule } from '@angular/material/table';
     HomeComponent,
     ConfirmTicketComponent,
     AllticketsComponent,
+    AdminticketviewComponent,
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     HttpClientModule,
     HttpModule,
     FormsModule,

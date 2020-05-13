@@ -2,12 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { forget } from './forgot-password';
 import { Service } from '../service/service';
 import { Router, ActivatedRoute } from '@angular/router';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-forgot-password',
@@ -22,20 +17,18 @@ export class ForgotPasswordComponent implements OnInit {
   users: forget[];
   user = new forget();
   constructor(
-    private _userService: Service,
+    private service: Service,
     private formBuilder: FormBuilder,
     private router: Router,
     private route: ActivatedRoute
   ) {}
 
   ngOnInit(): void {
-    // this.getUsers();
     this.forgetForm = this.formBuilder.group({
       userName: ['', Validators.required],
     });
   }
 
-  //get all the inputs combined in a function
   get f() {
     return this.forgetForm.controls;
   }
@@ -43,7 +36,6 @@ export class ForgotPasswordComponent implements OnInit {
   onSubmit(): void {
     this.submitted = true;
 
-    //stop if form is invaid
     if (this.forgetForm.invalid) {
       return;
     }
@@ -53,12 +45,7 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   addUser(): void {
-    this._userService.Forget(this.user.userName).subscribe((response) => {
-      // let resStr = JSON.stringify(response);
-      // let resJSON = JSON.parse(resStr);
-
-      // var id =resJSON._body.substring(resJSON._body.lastIndexOf(':') + 1);
-      // console.log(id);
+    this.service.Forget(this.user.userName).subscribe((response) => {
       this.router.navigate(['login/login']);
       console.log(response);
     });

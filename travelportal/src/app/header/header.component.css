@@ -1,7 +1,8 @@
 .header {
   background-color: #141a4b;
   font-size: 60px;
-  margin: 0px;
+  margin-bottom: 0px;
+  padding-bottom: 20px;
 }
 a {
   size: 100px;
@@ -10,25 +11,7 @@ a {
   font-style: italic;
   font-style: bold;
 
-  font-size: 30px;
+  font-size: 50px;
   font-weight: 100;
   text-decoration: none;
-}
-#a1 {
-  margin-left: 28%;
-  color: White;
-  font-style: italic;
-  font-style: bold;
-
-  font-size: 60px;
-  padding-right: 0px;
-}
-#a2 {
-  margin-right: 0px;
-  padding-right: 0px;
-
-  /* margin-: 0px; */
-  /* margin-left: 700px; */
-  font-size: 30px;
-  color: black;
 }

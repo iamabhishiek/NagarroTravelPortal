@@ -1,42 +1,69 @@
 <div>
-  <form>
-    <div id="main">
-      <h1>Ticket Successfully Raised</h1>
-      Id of Ticket:<label>&emsp;{{ user.ticketid }}</label
-      ><br />
-      Request Type:<label>&emsp;{{ user.requestype }}</label
-      ><br />
-      Priority:<label>&emsp;{{ user.priority }}</label
-      ><br />
-      Travel City:<label>&emsp;{{ user.city }}</label
-      ><br />
-      From Location City:<label>&emsp;{{ user.fromcity }}</label
-      ><br />
-      Travel Start Date :<label>&emsp;{{ user.startdate }}</label
-      ><br />
-      Travel End Date:<label>&emsp;{{ user.endate }}</label
-      ><br />
-      Passport Number:<label>&emsp;{{ user.passportnumber }}</label
-      ><br />
-      Project Name:<label>&emsp;{{ user.projectname }}</label
-      ><br />
-      Expense Borne by:<label>&emsp;{{ user.expenseborn }}</label
-      ><br />
-      Travel Approver Name:<label>&emsp;{{ user.travelapprover }}</label
-      ><br />
-      Expected Duration of Travel:<label>&emsp;{{ user.expectduration }}</label
-      ><br />
-      Any Upper Bound on the allowed amount? If yes Specify:<label
-        >&emsp;{{ user.upperbound }}</label
-      ><br />
-      Any Additional Details ::<label>&emsp;{{ user.additional }}</label
-      ><br />
-      Status of Request:<label>&emsp;{{ user.status }}</label
-      ><br />
-    </div>
-
-    <button (click)="Return()">Return Home</button><br />
-    <button (click)="Edit()">Edit</button><br />
-    <button (click)="print()">print</button><br />
-  </form>
+  <h1>Ticket Successfully Raised</h1>
+  <table>
+    <tr>
+      <td>Id of Ticket:</td>
+      <td>&emsp;{{ user.ticketid }}</td>
+    </tr>
+    <tr>
+      <td>Request Type:</td>
+      <td>&emsp;{{ user.requestype }}</td>
+    </tr>
+    <tr>
+      <td>Priority:</td>
+      <td>&emsp;{{ user.priority }}</td>
+    </tr>
+    <tr>
+      <td>Travel City:</td>
+      <td>&emsp;{{ user.city }}</td>
+    </tr>
+    <tr>
+      <td>From Location City:</td>
+      <td>&emsp;{{ user.fromcity }}</td>
+    </tr>
+    <tr>
+      <td>Travel Start Date :</td>
+      <td>&emsp;{{ user.startdate }}</td>
+    </tr>
+    <tr>
+      <td>Travel End Date:</td>
+      <td>&emsp;{{ user.endate }}</td>
+    </tr>
+    <tr>
+      <td>Passport Number:</td>
+      <td>&emsp;{{ user.passportnumber }}</td>
+    </tr>
+    <tr>
+      <td>Project Name:</td>
+      <td>&emsp;{{ user.projectname }}</td>
+    </tr>
+    <tr>
+      <td>Expense Borne by:</td>
+      <td>&emsp;{{ user.expenseborn }}</td>
+    </tr>
+    <tr>
+      <td>Travel Approver Name:</td>
+      <td>&emsp;{{ user.travelapprover }}</td>
+    </tr>
+    <tr>
+      <td>Expected Duration of Travel:</td>
+      <td>&emsp;{{ user.expectduration }}</td>
+    </tr>
+    <tr>
+      <td>Any Upper Bound on the allowed amount? If yes Specify:</td>
+      <td>>&emsp;{{ user.upperbound }}</td>
+    </tr>
+    <tr>
+      <td>Any Additional Details ::</td>
+      <td>&emsp;{{ user.additional }}</td>
+    </tr>
+    <tr>
+      <td>Status of Request:</td>
+      <td>&emsp;{{ user.status }}</td>
+    </tr>
+    <br />
+  </table>
+  <button (click)="Return()">Return Home</button>
+  <button (click)="Edit()">Edit</button>
+  <button onClick="window.print();">print</button>
 </div>

@@ -1,5 +1,6 @@
 <table class="table" style="margin: 2px; border: 10px;">
   <tr>
+    <th>Ticket id</th>
     <th>Request Type</th>
     <th>Priority</th>
     <th>City</th>
@@ -19,7 +20,19 @@
     <th>Additional</th>
     <th>Status</th>
   </tr>
-  <tr *ngFor="let x of user" style="margin: 3px;">
+  <tr
+    *ngFor="
+      let x of user
+        | paginate
+          : {
+              id: 'listing_pagination',
+              itemsPerPage: 5,
+              currentPage: page,
+              totalItems: totalRecords
+            }
+    "
+  >
+    <td>{{ x.ticketid }}</td>
     <td>{{ x.requestype }}</td>
     <td>{{ x.priority }}</td>
     <td>{{ x.city }}</td>
@@ -36,3 +49,12 @@
     <td>{{ x.status }}</td>
   </tr>
 </table>
+
+<div style="text-align: center;">
+  <pagination-controls
+    id="listing_pagination"
+    maxSize="5"
+    directionLinks="true"
+    (pageChange)="page = $event"
+  ></pagination-controls>
+</div>

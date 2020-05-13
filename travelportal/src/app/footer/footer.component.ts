@@ -12,25 +12,5 @@ export class FooterComponent implements OnInit {
 
   constructor(private myhttp: HttpClient) {}
 
-  ngOnInit() {
-    this.fetchallcat();
-  }
-  fetchallcat() {
-    this.myhttp
-      .get('http://localhost:3000/api/getcat', { responseType: 'json' })
-      .subscribe(
-        (response: []) => {
-          if (response.length > 0) {
-            let l = 0;
-            if (response.length > 5) l = 5;
-            else l = response.length;
-            for (let i = 0; i < l; i++) this.allcat.push(response[i]);
-          } else {
-          }
-        },
-        (error) => {
-          this.msg = error;
-        }
-      );
-  }
+  ngOnInit() {}
 }

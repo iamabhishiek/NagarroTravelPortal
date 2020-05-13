@@ -1,14 +1,3 @@
 <div class="header">
-  <table style="width: 100%; margin-top: 0; padding: 20px;">
-    <tr>
-      <td>
-        <a routerLink="/homepage/{{ username }}" id="a1"
-          >Nagarro Travel Portal</a
-        >
-      </td>
-
-      <td *ngIf="vis"><a (click)="onLogin()">Login</a></td>
-      <td *ngIf="!vis"><a (click)="onLogout()">Logout</a></td>
-    </tr>
-  </table>
+  <a routerLink="/" id="a1">Nagarro Travel Portal</a>
 </div>

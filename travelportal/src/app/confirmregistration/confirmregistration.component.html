@@ -4,40 +4,94 @@
     Thank you for Registring.The admin will contact you shortly with your
     username and password.
   </span>
-  <table>
-    <tr *ngFor="let x of users">
-      <td>{{ x.firstName }}</td>
+
+  <table id="table">
+    <tr>
+      <td>First Name:</td>
+      &emsp;{{
+        user.firstName
+      }}
+    </tr>
+
+    <tr>
+      <td>Last Name:</td>
+      &emsp;{{
+        user.lastName
+      }}
+    </tr>
+
+    <tr>
+      <td>Business Unit:</td>
+      &emsp;{{
+        user.businessUnit
+      }}
+    </tr>
+
+    <tr>
+      <td>Title:</td>
+      &emsp;{{
+        user.title
+      }}
+    </tr>
+
+    <tr>
+      <td>E-mail:</td>
+      &emsp;{{
+        user.email
+      }}
+    </tr>
+
+    <tr>
+      <td>Telephone:</td>
+      &emsp;{{
+        user.telephone
+      }}
+    </tr>
+
+    <tr>
+      <td>Address1:</td>
+      &emsp;{{
+        user.address1
+      }}
+    </tr>
+
+    <tr>
+      <td>Address2:</td>
+      &emsp;{{
+        user.address2
+      }}
+    </tr>
+
+    <tr>
+      <td>City:</td>
+      &emsp;{{
+        user.city
+      }}
+    </tr>
+
+    <tr>
+      <td>State:</td>
+      &emsp;{{
+        user.state
+      }}
+    </tr>
+
+    <tr>
+      <td>Zip:</td>
+      &emsp;{{
+        user.zip
+      }}
+    </tr>
+
+    <tr>
+      <td>Country:</td>
+      &emsp;{{
+        user.country
+      }}
     </tr>
   </table>
-  <form>
-    <div id="main">
-      First Name:<label>&emsp;{{ user.firstName }}</label
-      ><br />
-      Last Name:<label>&emsp;{{ user.lastName }}</label
-      ><br />
-      Business Unit:<label>&emsp;{{ user.businessUnit }}</label
-      ><br />
-      Title:<label>&emsp;{{ user.title }}</label
-      ><br />
-      E-mail: <label>&emsp;{{ user.email }}</label
-      ><br />
-      Telephone: <label>&emsp;{{ user.telephone }}</label
-      ><br />
-      Address1: <label>&emsp;{{ user.address1 }}</label
-      ><br />
-      Address2: <label>&emsp;{{ user.address2 }}</label
-      ><br />
-      City: <label>&emsp;{{ user.city }}</label
-      ><br />
-      State:<label>&emsp;{{ user.state }}</label
-      ><br />
-      Zip: <label>&emsp;{{ user.zip }}</label
-      ><br />
-      Country: <label>&emsp;{{ user.country }}</label
-      ><br />
-    </div>
-    <button (click)="print()">print</button><br />
-    <button (click)="Return()">Return Home</button><br />
-    <button (click)="Edit()">Edit</button><br />
-  </form>
+
+  <button onclick="window.print();">print</button>
+  <button (click)="Return()">Return Home</button>
+  <button (click)="Edit()">Edit</button>
 </div>

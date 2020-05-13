@@ -1,6 +1,6 @@
 <div class="loginbg">
   <h1>Login</h1>
-  <form action="/action_page.php" method="post">
+  <form>
     <h1>
       Username:
       <input
@@ -20,12 +20,10 @@
         name="password"
       />
     </h1>
+    <label style="color: red;">{{ msg }}</label>
     <br />
-    <button
-      class="btn btn success"
-      (click)="login()"
-      style="align-self: center;"
-    >
+
+    <button class="btn btn success" (click)="login()">
       login</button
     ><br /><br />
   </form>

@@ -9,22 +9,26 @@ import {
 import { Service } from '../service/service';
 import { Ticket } from '../ticket/ticket';
 
+import { MatTableDataSource } from '@angular/material/table';
+import { MatSortable, MatSort } from '@angular/material/sort';
+
 @Component({
   selector: 'app-admin-home',
   templateUrl: './admin-home.component.html',
   styleUrls: ['./admin-home.component.css'],
 })
 export class AdminHomeComponent implements OnInit {
+  @ViewChild(MatSort) sort: MatSort;
+  ticketForm: FormGroup;
   loading = false;
   submitted = false;
-  ticketForm: FormGroup;
   users: Ticket[];
-  user = new Ticket();
+  user;
   fileToUpload: File = null;
   ticketId: string;
-  form: FormGroup;
   formData = new FormData();
   data: File;
+  Columns = ['ticketid', 'priority', 'submittedDate', 'status'];
   constructor(
     private _userService: Service,
     private formBuilder: FormBuilder,
@@ -32,25 +36,32 @@ export class AdminHomeComponent implements OnInit {
     private route: ActivatedRoute,
     private cd: ChangeDetectorRef
   ) {}
+
+  form = new FormGroup({
+    comment: new FormControl('', []),
+    file: new FormControl([null]),
+  });
   ngOnInit(): void {
-    this.ticketForm = this.formBuilder.group({
-      additional: ['', Validators.required],
-      city: ['', Validators.required],
-      endate: ['', Validators.required],
-      expecteduration: ['', Validators.required],
-      expenseborn: ['', [Validators.required, Validators.email]],
-      fromcity: ['', [Validators.required, Validators.maxLength(15)]],
-      passportnumber: ['', Validators.required],
-      priority: [''],
-      projectname: ['', Validators.required],
-      requestype: ['', Validators.required],
-      startdate: ['', Validators.required],
-      travelapprover: ['', Validators.required],
-      upperbound: ['', Validators.required],
-    });
     this.getAllTicket();
   }
-  onChange(event) {
+
+  getAllTicket(): void {
+    this._userService.getAllTicket().subscribe(
+      (userData) => {
+        this.user = new MatTableDataSource(userData);
+        this.user.sort = this.sort;
+        console.log(userData);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+  get f() {
+    return this.form.controls;
+  }
+
+  onFileChange(event) {
     let reader = new FileReader();
 
     if (event.target.files && event.target.files.length) {
@@ -68,27 +79,17 @@ export class AdminHomeComponent implements OnInit {
     }
   }
 
-  onClick(ticketId: string) {
-    // this.router.navigateByUrl('alticket');
+  onSubmit(ticketId: string) {
     this.formData.append('file', this.data);
-    this.formData.append('ticketId', ticketId);
-    this.fileUpload();
+    this.formData.append('comment', this.f.comment.value);
   }
 
-  getAllTicket(): void {
-    this._userService.getAllTicket().subscribe(
-      (userData) => {
-        this.user = userData;
-        console.log(userData);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  }
-  get f() {
-    return this.form.controls;
+  link(j: string) {
+    this.router.navigate(['/adminticketview/' + j]);
   }
 
-  fileUpload() {}
+  Logout(): void {
+    localStorage.removeItem('auth');
+    this.router.navigate(['login/user']);
+  }
 }

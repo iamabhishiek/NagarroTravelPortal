@@ -23,7 +23,6 @@ export class ConfirmregistrationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    // this.getUsers();
     this.registerForm = this.formBuilder.group({
       firstName: ['', Validators.required],
       lastName: ['', Validators.required],
@@ -45,23 +44,7 @@ export class ConfirmregistrationComponent implements OnInit {
       }
     });
   }
-  print(): void {
-    let printContent, popupWin;
-    printContent = document.getElementById('main').innerHTML;
-    popupWin = window.open('', '_blank', 'top=0,left=0,height=100%,width=auto');
-    popupWin.document.open();
-    popupWin.document.write(`
-    <html>
-      <head>
-        <title>Print tab</title>
-        <style>
-        //........Customized style.......
-        </style>
-      </head>
-  <body onload="window.print();window.close()">${printContent}</body>
-    </html>`);
-    popupWin.document.close();
-  }
+
   getUserById(userId: string): void {
     this._userService.getUserById(userId).subscribe(
       (userData) => {
@@ -73,7 +56,7 @@ export class ConfirmregistrationComponent implements OnInit {
     );
   }
   Return(): void {
-    this.router.navigate(['login/']);
+    this.router.navigate(['homepage/' + this.user.email]);
   }
   Edit(): void {
     this.userId = this.route.snapshot.params.id;
