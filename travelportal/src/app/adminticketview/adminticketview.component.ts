@@ -107,9 +107,4 @@ export class AdminticketviewComponent implements OnInit {
   Return(): void {
     this.router.navigate(['/adminhomepage']);
   }
-
-  Logout(): void {
-    localStorage.removeItem('auth');
-    this.router.navigate(['login/user']);
-  }
 }
